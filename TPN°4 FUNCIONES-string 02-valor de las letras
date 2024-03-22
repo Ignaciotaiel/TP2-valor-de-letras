@@ -1,0 +1,54 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int calcularValorMensaje(const string mensaje) {
+map<char, int> valordeletra;
+    valordeletra['a'] = 1;
+    valordeletra['e'] = 1;
+    valordeletra['o'] = 2;
+    valordeletra['s'] = 2;
+    valordeletra['d'] = 3;
+    valordeletra['i'] = 3;
+    valordeletra['n'] = 3;
+    valordeletra['r'] = 3;
+    valordeletra['c'] = 4;
+    valordeletra['l'] = 4;
+    valordeletra['t'] = 4;
+    valordeletra['u'] = 4;
+    valordeletra['m'] = 5;
+    valordeletra['p'] = 5;
+    valordeletra['b'] = 6;
+    valordeletra['f'] = 6;
+    valordeletra['g'] = 6;
+    valordeletra['h'] = 6;
+    valordeletra['j'] = 6;
+    valordeletra['q'] = 6;
+    valordeletra['v'] = 6;
+    valordeletra['x'] = 6;
+    valordeletra['y'] = 6;
+    valordeletra['z'] = 6;
+    valordeletra['k'] = 7;
+    valordeletra['w'] = 7;
+    
+    int valortotal = 0;
+    for (int i = 0; i < mensaje.size(); i++) {
+        char letra = mensaje[i];
+            letra = tolower(letra);
+            if (valordeletra[letra] != 0) {
+            valortotal += valordeletra[letra];
+            }
+    }
+    return valortotal;
+}
+int main() {
+    string mensaje;
+    cout << "Ingrese un mensaje: ";
+    getline(cin, mensaje);
+    int valor = calcularValorMensaje(mensaje);
+    cout << "El valor del mensaje es: " << valor << " " << endl;
+
+    return 0;
+}
